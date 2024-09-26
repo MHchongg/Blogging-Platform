@@ -38,7 +38,7 @@ class CommentController extends Controller
         return view('blogs.show', ['blog' => $blog, 'comments' => $comments, 'selectedSortOption' => $sortOption]);
     }
 
-    public function toggleCommentLike (Comment $comment) {
+    public function like (Comment $comment) {
         // Check if the user has already liked the comment
         if (!$comment->likes()->where('user_id', Auth::id())->exists()) {
             $comment->likes()->create(['user_id' => Auth::id()]);

@@ -127,7 +127,7 @@
             const button = $(this);
             
             $.ajax({
-                url: '/toggleBlogLike/{{ $blog->id }}',
+                url: '/blog/{{ $blog->id }}/like',
                 method: 'POST',
                 data: {
                     _token: '{{ csrf_token() }}'

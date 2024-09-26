@@ -137,7 +137,7 @@ class BlogController extends Controller
         return view('results', ['blogs' => $blogs, 'query' => request('query')]);
     }
 
-    public function toggleBlogLike (Blog $blog) {
+    public function like (Blog $blog) {
         // Check if the user has already liked the blog
         if (!$blog->likes()->where('user_id', Auth::id())->exists()) {
             $blog->likes()->create(['user_id' => Auth::id()]);

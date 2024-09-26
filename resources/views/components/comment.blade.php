@@ -33,7 +33,7 @@
             const button = $(this);
             
             $.ajax({
-                url: '/toggleCommentLike/{{ $comment->id }}',
+                url: '/comment/{{ $comment->id }}/like',
                 method: 'POST',
                 data: {
                     _token: '{{ csrf_token() }}'

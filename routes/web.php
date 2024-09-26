@@ -13,7 +13,7 @@ Route::controller(BlogController::class)->group(function () {
         Route::get('/edit/{blog}', 'edit')->can('edit_delete_blog', 'blog');
         Route::patch('/update/{blog}', 'update')->can('edit_delete_blog', 'blog');
         Route::delete('/blog/{blog}', 'destroy')->can('edit_delete_blog', 'blog');
-        Route::post('/toggleBlogLike/{blog}', 'toggleBlogLike');
+        Route::post('/blog/{blog}/like', 'like');
     });
     Route::get('/', 'index');
     Route::get('/show/{blog}', 'show');
@@ -25,7 +25,7 @@ Route::controller(CommentController::class)->group(function () {
     Route::get('/comment/sort/{blog}', 'sort');
     Route::middleware('auth')->group(function () {
         Route::post('/comment/{blog}', 'store');
-        Route::post('/toggleCommentLike/{comment}', 'toggleCommentLike');
+        Route::post('/comment/{comment}/like', 'like');
     });
 });
 
